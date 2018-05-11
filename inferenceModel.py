@@ -52,7 +52,9 @@ with tf.Session() as sess:
     total_loss=loss(X,Y)
     train_op= train(total_loss)
 
+    # main thread
     coord=tf.train.Coordinator()
+    #create new subthread
     threads=tf.train.start_queue_runners(sess=sess,coord=coord)
 
     # Actual training loop
